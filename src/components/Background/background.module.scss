@@ -1,0 +1,84 @@
+.container{
+    position:fixed;
+    margin-left: 10vw;
+    margin-right: 10vw;
+    z-index: -1;
+
+    .gear1{
+        max-width: 50vw;
+        max-height: 50vh;
+        margin-top: 25vh;
+        position:fixed;
+        animation: spinBackward 40s linear infinite;
+    }
+
+    .gear2{
+        max-width: 36vw;
+        max-height: 36vh;
+        margin-left: 40vw;
+        margin-top: 0vh;
+        position:fixed;
+        animation: spinForward 20s linear infinite;
+    }
+
+    .gear3{
+        max-width: 70vw;
+        max-height: 70vh;
+        position:fixed;
+        margin-left: 40vw;
+        margin-top: 50vh;
+        animation: spinForward 50s linear infinite;
+
+    }
+    .gear4{
+        max-width: 20vw;
+        max-height: 20vh;
+        margin-top: 80vh;
+        position:fixed;
+        animation: spinForward 8s linear infinite;
+    }
+    .gear5{
+        max-width: 15vw;
+        max-height: 15vh;
+        margin-left: 20vw;
+        position:fixed;
+        animation: spinForward 3s linear infinite;
+    }
+    .gear6{
+        max-width: 70vw;
+        max-height: 70vh;
+        margin-left: 65vw;
+        margin-top: -50vh;
+        animation: spinBackward 25s linear infinite;
+    }
+
+    .gear7{
+        max-width: 20vw;
+        max-height: 20vh;
+        margin-top: 63vh;
+        margin-left: 20vw;
+        animation: spinForward 3s linear infinite;
+    }
+}
+
+
+
+@keyframes spinForward {
+    from {
+        transform: rotate(0);
+    }
+
+    to{
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes spinBackward {
+    from {
+        transform: rotate(0);
+    }
+
+    to{
+        transform: rotate(-360deg);
+    }
+}
