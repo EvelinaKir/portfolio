@@ -1,5 +1,6 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto:100,100italic,300,300italic,regular,italic,500,500italic,700,700italic,900,900italic);
-@import url(https://fonts.googleapis.com/css?family=Lobster:regular);
+@import url(https://fonts.googleapis.com/css?family=Mochiy+Pop+P+One:regular);
+@import url(https://fonts.googleapis.com/css?family=Permanent+Marker:regular);
+@import url(https://fonts.googleapis.com/css?family=Patrick+Hand:regular);
 body {
     background: rgb(2,2,10);
     background: radial-gradient(circle, rgba(2,2,10,1) 0%, rgba(5,32,74,1) 72%, rgba(4,18,45,1) 72%);
@@ -8,11 +9,10 @@ body {
 }
 
 a, li, span, h1, h2, h3, h4, h5, h6 {
-    color: #000411;
+  color: #EBF2FA;
       list-style: none;
       outline: none;
         text-decoration: none;
-        color: inherit; 
         font-family: Roboto;   
     }
 
@@ -22,7 +22,7 @@ a, li, span, h1, h2, h3, h4, h5, h6 {
     }
     
     ::-webkit-scrollbar-track{
-      background: #EDF0F4;
+      background: #000000;
       border-radius: 100px;
     }
     

@@ -12,14 +12,14 @@ export const SmallMenu = () => {
             <div className={classNames(style.bigMenu, show ? style.showMenu: style.hideMenu)}>
                 <ul>
                 <li>
-          <Link to="/projects">Проекты</Link >
+          <Link to="/projects">Projects</Link >
         </li>
         <li>
-            <Link to="/profile">Профиль</Link >
+            <Link to="/profile">Profile</Link >
         </li>
         <li>
           {" "}
-          <Link  to="/contacts">Контакты</Link>
+          <Link  to="/contacts">Contacts</Link>
         </li>
                 </ul>
             </div>

@@ -19,16 +19,14 @@ const menuStyle = !move ? style.navBar : style.navBarMove
       <div>
         <ul className={menuStyle}>
         <li>
-          <Link to="/projects">Проекты</Link >
+          <Link to="/projects">Projects</Link >
         </li>
         <li>
-          <div>
-            <Link to="/profile">Профиль</Link >
-          </div>
+            <Link to="/profile">Profile</Link >
         </li>
         <li>
           {" "}
-          <Link  to="/contacts">Контакты</Link>
+          <Link  to="/contacts">Contacts</Link>
         </li>
       </ul>
       </div>
