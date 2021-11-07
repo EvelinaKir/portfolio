@@ -9,17 +9,19 @@ import bubble1 from '../../images/bubble.png';
 import bubble2 from '../../images/bubble2.png';
 import bubble3 from '../../images/bubble3.png';
 import { Background } from "../Background/Background";
+import { useLocation } from "react-router";
+import { SmallMenu } from "../SmallMenu/SmallMenu";
 export const App = () => {
-  const [menu, setMenu] =  useState<boolean>(false)
-
+const location = useLocation()
+console.log(location.pathname)
   return <div className={styles.container}>
     <Background/>
-    <FirstMenu/>
+    {location.pathname != '/' && (<SmallMenu/>)}
     <Routes>
+      <Route path='/' element={<FirstMenu/>}/>
     <Route path='/profile' element={<Profile/>}/>
       <Route path='/contacts' element={<Contacts/>}/>
       <Route path='/projects' element={<Projects/>}/>
     </Routes>
-    <Outlet />
   </div>;
 };

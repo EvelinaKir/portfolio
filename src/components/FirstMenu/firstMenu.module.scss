@@ -3,11 +3,19 @@
   height: 70vh;
   border-radius: 8px;
   display: flex;
-  margin: auto;
-  margin-top: 20vh;
+  margin: 15vh auto;
   flex-direction: column;
-  margin-left: auto;
+
   
+.navBar{
+  visibility: hidden;
+}
+
+.navBarMove{
+  visibility: hidden;
+  animation: openNavBar forwards 2s 2s;
+}
+
   .menuButton{
     display: flex;
     align-items: center;
@@ -15,21 +23,23 @@
       max-width: 48vw !important;
     max-height: 50vh;
     }
-    .leftHalfGear, .leftHalfGearMove{
+    .leftHalfGear{
       margin-right: -0.96em;
   }
   .leftHalfGearMove{
+    margin-right: -0.010em;
     transform-origin: ( right);
-    animation: turnLeftHalfGear forwards 3s, moveLeftHalfGear forwards 1s 5s;
+    animation: turnLeftHalfGear forwards 1s, moveLeftHalfGear forwards 1s 1s;
   }
 
-.rightHalfGear, .rightHalfGearMove{
+.rightHalfGear{
 
   margin-left: -0.96em;
 }
 .rightHalfGearMove{
+  margin-left: -0.010em;
   transform-origin: ( left);
-animation: turnRightHalfGear forwards 3s, moveRightHalfGear forwards 1s 5s;
+animation: turnRightHalfGear forwards 1s, moveRightHalfGear forwards 1s 1s;
 }
 
 
@@ -44,20 +54,24 @@ animation: turnRightHalfGear forwards 3s, moveRightHalfGear forwards 1s 5s;
    background-color: #648de5;
 }
 
+.hidden{
+  display: none;
+}
+
 
 }
   ul {
     padding: 2vh 1vw;
-    margin-top: -20vh;
     display: flex;
     flex-direction: column;
-
+    margin-top: -50%;
     li {
       text-align: center;
       color: #ffffff;
       list-style: none;
+      margin-bottom:4% ;
       font: {
-        size: 24px;
+        size: 190%;
         weight: 500;
       }
 
@@ -86,7 +100,7 @@ animation: turnRightHalfGear forwards 3s, moveRightHalfGear forwards 1s 5s;
     transform: rotate(0deg) ;
   }
   to {
-    transform: rotate(90deg) ;
+    transform: rotate(450deg) ;
   }
 
 }
@@ -97,7 +111,7 @@ animation: turnRightHalfGear forwards 3s, moveRightHalfGear forwards 1s 5s;
     transform: rotate(0deg) ;
   }
   to {
-    transform: rotate(90deg) ;
+    transform: rotate(450deg) ;
   }
 
 }
@@ -118,4 +132,23 @@ animation: turnRightHalfGear forwards 3s, moveRightHalfGear forwards 1s 5s;
   to {
     margin-bottom: -50vh;
   }
+}
+
+@keyframes openNavBar {
+  from {
+    visibility: hidden;
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+@media screen and(min-width: 1200px)  {
+  .container{
+  ul{
+    margin-top: -45% !important;
+  }
+}
 }

@@ -8,6 +8,9 @@ const devServer = (isDev) => !isDev ? {} : {
   devServer: {
     open: true,
     port: 8080,
+    historyApiFallback: {
+      index: '/'
+  }
   },
 };
 
