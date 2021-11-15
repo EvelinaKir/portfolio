@@ -5,10 +5,9 @@ import { Link } from 'react-router-dom'
 import classNames from 'classnames'
 export const SmallMenu = () => {
     const [show, setShow] = useState<boolean>(false)
-    console.log('hi')
     return (
         <div className={style.container}>
-            <img onClick={() => setShow(!show)} src={gear} alt="menuButton" />
+            <img className={show ? style.turn : style.noTurn} onClick={() => setShow(!show)} src={gear} alt="menuButton" />
             <div className={classNames(style.bigMenu, show ? style.showMenu: style.hideMenu)}>
                 <ul>
                 <li>
@@ -18,8 +17,10 @@ export const SmallMenu = () => {
             <Link to="/profile">Profile</Link >
         </li>
         <li>
-          {" "}
           <Link  to="/contacts">Contacts</Link>
+        </li>
+        <li>
+          <Link  to="/abilities">Abilities</Link>
         </li>
                 </ul>
             </div>

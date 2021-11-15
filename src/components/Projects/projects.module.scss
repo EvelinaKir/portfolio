@@ -1,10 +1,86 @@
 .container{
-    background: #edf0f4;
+  background-color: rgba($color: #2751b1, $alpha: 0.1);
     max-width: 1190px;
+    max-height: 70vh;
     margin: 10vh auto;
     padding: 5px 5px;
     border-radius: 8px;
     display: flex;
     flex-direction: row-reverse;
     justify-content: space-between;
+    padding: 2vh 2vw;
+    display: flex;
+    justify-content: space-between;
+    
+  }
+
+  // .oneProjectInfo{
+
+  // }
+
+  
+
+  .oneProject {
+    margin: 1vh 1vw;
+    display: flex;
+    flex-direction: row-reverse;
+    img{
+      margin: 0 auto;
+      max-width: 25vw;
+    max-height: 25vh;
+    border-radius: 8px;
+    }
+    &:hover{
+      img{
+         animation: scaling 1s forwards;
+      }
+     
+    }
+    
+    &:hover  .oneProjectInfo{
+      animation: showText 1s 1.1.8s forwards;
+    }
+    
+    
+  }
+
+  @media  screen and(max-width:1190px) {
+    .container{
+      flex-direction: column;
+      max-width: 80vw;
+      max-height: 80vh;
+
+      .oneProject{
+        margin: 2vh 1vw;
+        img{
+          max-width: 60vw;
+        }
+      }
+    }
+    .oneProject{
+      max-width: 80vw;
+      max-height: 10vh;
+    }
+  }
+
+  @keyframes scaling {
+    from {
+      transform: scale(1);
+      opacity: 1;
+      filter: brightness(1);
+      
+    }
+    to {
+      filter: brightness(0.1);
+      transform: scale(1.5);
+    }
+  }
+
+  @keyframes showText {
+    from {
+      visibility: hidden;
+    }
+    to {
+      visibility: visible;
+    }
   }

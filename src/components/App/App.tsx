@@ -11,9 +11,9 @@ import bubble3 from '../../images/bubble3.png';
 import { Background } from "../Background/Background";
 import { useLocation } from "react-router";
 import { SmallMenu } from "../SmallMenu/SmallMenu";
+import { Abilities } from "../Abilities/Abilities";
 export const App = () => {
 const location = useLocation()
-console.log(location.pathname)
   return <div className={styles.container}>
     <Background/>
     {location.pathname != '/' && (<SmallMenu/>)}
@@ -22,6 +22,7 @@ console.log(location.pathname)
     <Route path='/profile' element={<Profile/>}/>
       <Route path='/contacts' element={<Contacts/>}/>
       <Route path='/projects' element={<Projects/>}/>
+      <Route path='/abilities' element={<Abilities/>}/>
     </Routes>
   </div>;
 };

@@ -25,8 +25,10 @@ const menuStyle = !move ? style.navBar : style.navBarMove
             <Link to="/profile">Profile</Link >
         </li>
         <li>
-          {" "}
           <Link  to="/contacts">Contacts</Link>
+        </li>
+        <li>
+          <Link  to="/abilities">Abilities</Link>
         </li>
       </ul>
       </div>
