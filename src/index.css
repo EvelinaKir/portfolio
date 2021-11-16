@@ -10,19 +10,25 @@ body {
 
 a, li, span, h1, h2, h3, h4, h5, h6 {
   color: #EBF2FA;
-      list-style: none;
-      outline: none;
-        text-decoration: none;
-        font-family: Roboto;   
+  list-style: none;
+  
+  font-family: "Patrick Hand";
+  font-style: normal;
+  font-variant: normal; 
+  font-weight:100; 
+  margin: 0;
+  padding: 0;
     }
 
 
     ::-webkit-scrollbar {
       width: 1vw;
+      height: 1.5vh;
     }
     
     ::-webkit-scrollbar-track{
-      background: #000000;
+      background: #051c44;
+      border: 2px solid #02163a;
       border-radius: 100px;
     }
     

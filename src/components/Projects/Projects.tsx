@@ -1,6 +1,9 @@
 import style from "./projects.module.scss";
-import { FC, useEffect } from "react";
-import { getUserAxiosRepo } from "../../services/reducers/mainReducers";
+import { FC, useEffect, useState } from "react";
+import {
+  getUserAxiosRepo,
+  profileSlice,
+} from "../../services/reducers/mainReducers";
 import { useAppDispatch, useAppSelector } from "../../services/hooks";
 import { Spiner } from "../Spiner/Spiner";
 import { TData } from "../../services/reducers/mainReducers";
@@ -14,27 +17,42 @@ export const Projects = () => {
     dispatch(getUserAxiosRepo());
   }, []);
 
+  const writeProject = profileSlice.actions.writeCurrentProject;
+  const currentProject = useAppSelector(
+    (state) => state.profileReducer.currentProject
+  );
+
   return (
     <>
       {loading == "pending" && <Spiner />}
       {loading == "succeeded" && data && (
         <div className={style.container}>
-          {data.map((elem) => {
-            if (elem) {
-              return (
-                <div key={elem.id}>
-                  <Project data={elem} />
-                </div>
-              );
-            }
-          })}
+          <div className={style.rowContainer}>
+            {data.map((elem) => {
+              if (elem) {
+                return (
+                  <div
+                    onClick={() => dispatch(writeProject(elem))}
+                    key={elem.id}
+                  >
+                    <ProjectPreview data={elem} />
+                  </div>
+                );
+              }
+            })}
+          </div>
+
+          <div className={style.currentProject}>
+            {currentProject && <ProjectDetailed />}
+            {!currentProject && <h1>Choose the project</h1>}
+          </div>
         </div>
       )}
     </>
   );
 };
 
-const Project: FC<{ data: TData }> = ({ data }) => {
+const ProjectPreview: FC<{ data: TData }> = ({ data }) => {
   const right = images.imagesSet.find((elem) => elem.name === data.name);
   console.log(data.language);
 
@@ -42,14 +60,83 @@ const Project: FC<{ data: TData }> = ({ data }) => {
     return (
       <div className={style.oneProject}>
         <img src={right.image} alt="" />
-        <div className={style.oneProjectInfo}>
-        <h1>{data.name}</h1>
-        <h2>Language: {data.language}</h2>
-        <h2>url: <a href={data.html_url}>github</a></h2>
-        <h6>Created at: {data.created_at}</h6>
-        <h6>Updated at: {data.updated_at}</h6>
-        </div>
       </div>
     );
   else return null;
+};
+
+const ProjectDetailed = () => {
+  const [bigImage, setBigImage] = useState<boolean>(false);
+  const currentProject = useAppSelector(
+    (state) => state.profileReducer.currentProject
+  );
+
+  const getDate = (date: string) => {
+    return new Date(date)
+      .toLocaleString("ru-RU", {
+        year: "numeric",
+        month: "numeric",
+        day: "numeric",
+      })
+      .toString();
+  };
+
+  const right = images.imagesSet.find(
+    (elem) => elem.name === currentProject!.name
+  );
+  return (
+    <div className={style.detailedCurrentProjectContainer}>
+      <div className={style.detailedCurrentProject}>
+        <div className={style.currentProjectImage}>
+          <img
+            className={bigImage ? style.bigImage : style.smallImage}
+            onClick={() => {
+              setBigImage(!bigImage);
+            }}
+            src={right?.image}
+            alt="currentProjectImage"
+          />
+        </div>
+        <div className={style.currentProjectInfo}>
+          <ul>
+            <li>
+              <h1 className={style.titleDetailProject}>Name:</h1>
+              <h1>
+                {`<`}
+                {currentProject?.name}
+                {`>`}
+              </h1>
+            </li>
+            <li>
+              <h1 className={style.titleDetailProject}>Language:</h1>
+              <h1>{currentProject?.language}</h1>
+            </li>
+            <li>
+              <h1 className={style.titleDetailProject}>Created at:</h1>
+              <h1>{getDate(currentProject!.created_at)}</h1>
+            </li>
+            <li>
+              <h1 className={style.titleDetailProject}>Updated at:</h1>
+              <h1>{getDate(currentProject!.updated_at)}</h1>
+            </li>
+            <li>
+              <h1 className={style.titleDetailProject}>Links:</h1>
+              <div className={style.links}>
+                <a href={currentProject?.html_url}>Github repo</a>
+                <a
+                  href={`https://evelinakir.github.io/${currentProject?.name}/`}
+                >
+                  github pages
+                </a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div className={style.subInfo}>
+      <h1 className={style.titleDetailProject}>Used:</h1>
+            <div className={style.used}>{currentProject!.topics.map((elem:string) => (<span>{elem}</span>))}</div>
+      </div>
+    </div>
+  );
 };

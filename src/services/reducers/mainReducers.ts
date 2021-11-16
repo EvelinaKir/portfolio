@@ -8,19 +8,22 @@ export type TData = {
     html_url: string,
     language: string,
     id: number,
-    name: string
+    name: string,
+    topics: Array<string>
 }
 
 interface TProfileState {
     data: Array<TData> | null,
     loading: 'idle' | 'pending' | 'succeeded' | 'failed',
-    error: boolean 
+    error: boolean,
+    currentProject:  TData | null
 }
 
 const profileState:TProfileState = {
     data: null,
     loading: 'idle',
     error:false,
+    currentProject: null
 }
 export const getUserAxiosRepo = createAsyncThunk(
     'profile/getUserAxios',
@@ -35,7 +38,11 @@ export const getUserAxiosRepo = createAsyncThunk(
 export const profileSlice = createSlice({
     name: 'profile',
     initialState: profileState,
-    reducers: {},
+    reducers: {
+        writeCurrentProject(state, action){
+            state.currentProject = action.payload
+        }
+    },
     extraReducers: (builder) => {
         builder.addCase(getUserAxiosRepo.pending, (state) => {
             state.loading = "pending"

@@ -18,6 +18,8 @@
 
    .turn {
         animation: basic 2s linear infinite;
+        display: block !important;
+        position: absolute;
     }
 
     .bigMenu {
@@ -77,15 +79,15 @@ li{
         margin-right: 0;
         background-color: inherit;
         max-height: 50vh;
+        top: 20vh;
         img{
             display: block !important;
             position: absolute;
         }
 .showMenu
         {
-            transform: translate(-8vw, 0vh) !important;
+            transform: translate(-8vw, 20vh) !important;
             transition: transform .5s cubic-bezier(0, .72, 0, 1) !important;
-            margin-top: 15vh;
         }
 
 
