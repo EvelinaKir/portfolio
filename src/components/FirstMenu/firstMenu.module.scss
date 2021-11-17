@@ -1,0 +1,141 @@
+
+
+.container {
+  background: inherit;
+  height: 70vh;
+  border-radius: 8px;
+  display: flex;
+  margin: 15vh auto;
+  flex-direction: column;
+
+  
+.navBar{
+  visibility: hidden;
+  opacity: 0;
+}
+
+  .menuButton{
+    display: flex;
+    align-items: center;
+    img{
+      max-width: 48vw !important;
+    max-height: 50vh;
+    }
+    .leftHalfGear{
+      margin-right: -0.96em;
+  }
+  .leftHalfGearMove{
+    margin-right: -0.010em;
+    transform-origin: ( right);
+    animation: turnLeftHalfGear forwards 1s, moveLeftHalfGear forwards 1s 1s;
+  }
+
+.rightHalfGear{
+
+  margin-left: -0.96em;
+}
+.rightHalfGearMove{
+  margin-left: -0.010em;
+  transform-origin: ( left);
+animation: turnRightHalfGear forwards 1s, moveRightHalfGear forwards 1s 1s;
+}
+
+
+.openMenu{
+  border-radius: 80%;
+  padding: 1.35em;
+  margin-left: -5px;
+  margin-right: -5px;
+  appearance: none;
+  -webkit-appearance: none;
+  z-index: 1;
+   background-color: #648de5;
+}
+
+.hidden{
+  display: none;
+}
+
+
+}
+  ul {
+    padding: 2vh 1vw;
+    display: flex;
+    flex-direction: column;
+    margin-top: -50% !important;
+    li {
+      text-align: center;
+      color: #ffffff;
+      list-style: none;
+      margin-bottom: 5vmin;
+
+      &:hover {
+        color: #313f6d;
+      }
+      button {
+        font: {
+          family: "Patrick Hand";
+          size: 300%;
+          style: normal;
+          variant: normal; 
+          weight:100; 
+        }
+        line-height: 26.4px;
+        outline: none;
+        text-decoration: none;
+        color: inherit;
+        border: none;
+        background-color: inherit;
+      }
+    }
+  }
+}
+
+.activeLink {
+ font-weight: 700;
+ font-size: 30px;
+ color: #1d306e !important;
+}
+
+@keyframes turnLeftHalfGear {
+
+  from {
+
+    transform: rotate(0deg) ;
+  }
+  to {
+    transform: rotate(450deg) ;
+  }
+
+}
+
+@keyframes turnRightHalfGear {
+
+  from {
+    transform: rotate(0deg) ;
+  }
+  to {
+    transform: rotate(450deg) ;
+  }
+
+}
+
+@keyframes moveLeftHalfGear {
+  from {
+    margin-bottom: 0vh;
+  }
+  to {
+    margin-top: -50vh !important;
+  }
+}
+
+
+@keyframes moveRightHalfGear {
+  from {
+    margin-top: 0vh;
+  }
+  to {
+    margin-bottom: -50vh;
+  }
+}
+

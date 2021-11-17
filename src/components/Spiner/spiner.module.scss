@@ -1,0 +1,23 @@
+.container{
+    width: 40vw;
+    height: 40vh;
+    margin: 10vh auto;
+
+    img{
+        animation: spiner linear infinite 1s;
+    }
+}
+
+@keyframes spiner {
+    0% {
+        transform: rotate(0);
+    }
+
+    50%{
+transform: rotate(20deg);
+    }
+
+    100%{
+        transform: rotate(0);   
+    }
+}

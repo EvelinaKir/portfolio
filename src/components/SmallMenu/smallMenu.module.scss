@@ -1,0 +1,147 @@
+.container{
+    display: flex;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgba($color: #3772FF, $alpha: 0.1);
+    border-radius:10px;
+    z-index: 40;
+    filter: blur(04px);
+    
+
+
+    img{
+        width: 15vw;
+        height: 15vh;
+        display: none;
+
+    }
+
+   .turn {
+        animation: basic 2s linear infinite;
+        display: block !important;
+        position: absolute;
+    }
+
+    .bigMenu {
+        display: flex;
+
+    }
+
+    ul{
+display: flex;
+justify-content: space-around;
+align-items: center;
+li{
+    padding: 1em 4em;
+}
+
+       button{
+        list-style: none;
+          font: {
+            family: "Patrick Hand";
+            size: 300%; 
+            style: normal;
+            variant: normal; 
+            weight:100; 
+          }
+          color: inherit;
+          border: none;
+          background-color: inherit;
+  
+        &:hover {
+          color: #313f6d;
+        }
+    
+          outline: none;
+          text-decoration: none;
+          color: inherit;
+        
+       }
+    }
+
+}
+
+
+.leftHalfGear{
+    display: block !important;
+    position: absolute;
+    margin-top: 10vh;
+    margin-left: -40%;
+    max-width: 48vw !important;
+    max-height: 50vh;
+    margin-right: -0.010em;
+    z-index: 1000;
+    background-color: inherit;
+    transform: scale(4);
+}
+
+.rightHalfGear{
+    display: block !important;
+    position: absolute;
+    margin-top: 10vh;
+    margin-left: 100%;
+    max-width: 48vw !important;
+    max-height: 50vh;
+    z-index: 1000;
+    transform: scale(4);
+}
+
+
+
+@keyframes basic {
+    from {
+        transform: rotate(0);
+    }
+
+    to{
+        transform: rotate(360deg);
+    }
+}
+
+
+@media  screen and(max-width:1190px) {
+    .container{
+
+
+
+
+
+        flex-direction: column;
+        margin-left: 0;
+        margin-right: 0;
+        background-color: inherit;
+        max-height: 50vh;
+        top: 20vh;
+        img{
+            display: block !important;
+            position: absolute;
+        }
+.showMenu
+        {
+            transform: translate(-8vw, 20vh) !important;
+            transition: transform .5s cubic-bezier(0, .72, 0, 1) !important;
+        }
+
+
+        .bigMenu{
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            transform: translate3d(-90vw, 0, 0);
+        }
+        ul{
+            flex-direction: column;
+            position: fixed; 
+            background-color: rgba($color: #3772FF, $alpha: 0.3);
+            border: 5px solid #04122D;
+            border-radius: 20px;
+        }
+        li{
+            padding: 3vh !important;
+
+        }
+
+    }
+}
+
