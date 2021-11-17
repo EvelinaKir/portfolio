@@ -33,7 +33,10 @@ export const Profile = () => {
             Typescript 
             React Js
             Redux (+toolkit)
-            Axios <br/>
+            Axios 
+            Jest 
+            Cypress 
+            <br/>
             And that is only the beginning... 
           </span>
         </div>
