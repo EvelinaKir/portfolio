@@ -8,10 +8,9 @@ body {
     overflow: hidden;
 }
 
-a, li, span, h1, h2, h3, h4, h5, h6 {
+a, li, span, h1, h2, h3, h4, h5, h6, button {
   color: #EBF2FA;
   list-style: none;
-  
   font-family: "Patrick Hand";
   font-style: normal;
   font-variant: normal; 
@@ -33,6 +32,6 @@ a, li, span, h1, h2, h3, h4, h5, h6 {
     }
     
     ::-webkit-scrollbar-thumb{
-      background: #05204A;
+      background: #031430;
       border-radius: 100px;
     }

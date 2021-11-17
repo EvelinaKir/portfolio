@@ -1,3 +1,5 @@
+
+
 .container {
   background: inherit;
   height: 70vh;
@@ -9,11 +11,7 @@
   
 .navBar{
   visibility: hidden;
-}
-
-.navBarMove{
-  visibility: hidden;
-  animation: openNavBar forwards 2s 2s;
+  opacity: 0;
 }
 
   .menuButton{
@@ -64,20 +62,20 @@ animation: turnRightHalfGear forwards 1s, moveRightHalfGear forwards 1s 1s;
     padding: 2vh 1vw;
     display: flex;
     flex-direction: column;
-    margin-top: -53%;
+    margin-top: -50% !important;
     li {
       text-align: center;
       color: #ffffff;
       list-style: none;
-      margin-bottom:4%;
+      margin-bottom: 5vmin;
 
       &:hover {
         color: #313f6d;
       }
-      a {
+      button {
         font: {
           family: "Patrick Hand";
-          size: 170%; 
+          size: 300%;
           style: normal;
           variant: normal; 
           weight:100; 
@@ -86,6 +84,8 @@ animation: turnRightHalfGear forwards 1s, moveRightHalfGear forwards 1s 1s;
         outline: none;
         text-decoration: none;
         color: inherit;
+        border: none;
+        background-color: inherit;
       }
     }
   }
@@ -129,6 +129,7 @@ animation: turnRightHalfGear forwards 1s, moveRightHalfGear forwards 1s 1s;
   }
 }
 
+
 @keyframes moveRightHalfGear {
   from {
     margin-top: 0vh;
@@ -138,22 +139,3 @@ animation: turnRightHalfGear forwards 1s, moveRightHalfGear forwards 1s 1s;
   }
 }
 
-@keyframes openNavBar {
-  from {
-    visibility: hidden;
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-    visibility: visible;
-  }
-}
-
-@media screen and(min-width: 1200px)  {
-  .container{
-  ul{
-    margin-top: -45% !important;
-  }
-
-}
-}

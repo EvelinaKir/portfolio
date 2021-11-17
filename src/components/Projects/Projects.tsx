@@ -1,5 +1,5 @@
 import style from "./projects.module.scss";
-import { FC, useEffect, useState } from "react";
+import { FC, useEffect, useRef, useState } from "react";
 import {
   getUserAxiosRepo,
   profileSlice,
@@ -8,14 +8,24 @@ import { useAppDispatch, useAppSelector } from "../../services/hooks";
 import { Spiner } from "../Spiner/Spiner";
 import { TData } from "../../services/reducers/mainReducers";
 import { images } from "../../utils/imagesSet/imagesSet";
+import gsap from "gsap";
+
 export const Projects = () => {
   const { data, loading, error } = useAppSelector(
     (state) => state.profileReducer
   );
   const dispatch = useAppDispatch();
+  const ref = useRef<any>(null);
+
   useEffect(() => {
     dispatch(getUserAxiosRepo());
   }, []);
+
+  useEffect(() => {
+    if (data) {
+      dispatch(writeProject(data.find((elem) => elem.name === "react-burger")));
+    }
+  }, [data]);
 
   const writeProject = profileSlice.actions.writeCurrentProject;
   const currentProject = useAppSelector(
@@ -23,7 +33,7 @@ export const Projects = () => {
   );
 
   return (
-    <>
+    <div className={style.mainContainer} ref={ref}>
       {loading == "pending" && <Spiner />}
       {loading == "succeeded" && data && (
         <div className={style.container}>
@@ -44,11 +54,10 @@ export const Projects = () => {
 
           <div className={style.currentProject}>
             {currentProject && <ProjectDetailed />}
-            {!currentProject && <h1>Choose the project</h1>}
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 };
 
@@ -59,7 +68,7 @@ const ProjectPreview: FC<{ data: TData }> = ({ data }) => {
   if (right)
     return (
       <div className={style.oneProject}>
-        <img src={right.image} alt="" />
+        <img src={right.image} alt="image" />
       </div>
     );
   else return null;
@@ -130,12 +139,16 @@ const ProjectDetailed = () => {
                 </a>
               </div>
             </li>
+            <li>
+              <h1 className={style.titleDetailProject}>Used:</h1>
+              <div className={style.used}>
+                {currentProject!.topics.map((elem: string) => (
+                  <span key={elem}>{elem}</span>
+                ))}
+              </div>
+            </li>
           </ul>
         </div>
-      </div>
-      <div className={style.subInfo}>
-      <h1 className={style.titleDetailProject}>Used:</h1>
-            <div className={style.used}>{currentProject!.topics.map((elem:string) => (<span>{elem}</span>))}</div>
       </div>
     </div>
   );
